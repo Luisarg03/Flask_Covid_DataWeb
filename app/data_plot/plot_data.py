@@ -27,14 +27,14 @@ def plot_top(snap_data, ds1, ds2, ds3):
 
     rec1 = ax.bar(x, ds1, width, color='#3da5ff')
     rec2 = ax.bar(x, ds2, width, color='#49cc4c')
-    rec3 = ax.bar(x, ds3, width, color='#ff3e30')
+    rec3 = ax.bar(x, ds3, width, color='#f44336')
 
     autolabel(rec1)
     autolabel(rec2)
     autolabel(rec3)
 
     fig.tight_layout()
-    plt.legend(['Confirmados', 'Recuperados', 'Muertos'], fontsize='x-large')
+    plt.legend(['Confirmados', 'Recuperados', 'Muertos'], fontsize='medium')
     fig.savefig('app/static/img/top10.png')
 
 
@@ -44,10 +44,10 @@ def plot_arg(df):
     fig, ax = plt.subplots(figsize=(25, 15))
 
     ax.set_ylabel('Cantidad de casos', fontsize=16)
-    ax.set_title("Argentina", fontsize=20)
+    ax.set_title("Argentina", fontsize=35)
 
-    ax.tick_params(axis="x", labelsize=14)
-    ax.tick_params(axis="y", labelsize=14)
+    ax.tick_params(axis="x", labelsize=20)
+    ax.tick_params(axis="y", labelsize=20)
 
     for i in df.columns[:3]:
         ax.plot(df['Date'], df[i], label=i)
@@ -55,9 +55,9 @@ def plot_arg(df):
         ax.text(df['Date'].iloc[-1],
                 df[i].iloc[-1],
                 df[i].iloc[-1],
-                fontsize=14,
+                fontsize=25,
                 ha='right')
 
-    ax.legend(fontsize='x-large')
+    ax.legend(fontsize='xx-large')
 
     fig.savefig('app/static/img/arg.png')
